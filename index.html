@@ -1,19 +1,162 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <!-- Вставьте код сюда -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
-    </script>
-    
     <meta charset="UTF-8">
-    <title>Ваш сайт</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карусель эмоций</title>
+    <style>
+        /* Стили страницы и карусели */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            padding-top: 50px;
+        }
+
+        .carousel-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 0 auto;
+        }
+
+        .carousel-wrapper {
+            width: 300px; /* Ширина видимой части (на 3 эмоции) */
+            overflow: hidden;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            padding: 15px 0;
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .emotion-item {
+            min-width: 100px;
+            font-size: 3rem;
+            cursor: pointer;
+            user-select: none;
+            transition: transform 0.2s, background-color 0.2s;
+            border-radius: 10px;
+            padding: 10px 0;
+            box-sizing: border-box;
+        }
+
+        /* Эффект при наведении и выборе */
+        .emotion-item:hover {
+            transform: scale(1.1);
+        }
+
+        .emotion-item.selected {
+            background-color: #e0f7fa;
+            border: 2px solid #00bcd4;
+            transform: scale(1.1);
+        }
+
+        /* Кнопки переключения */
+        .nav-btn {
+            background-color: #00bcd4;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 1.5rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .nav-btn:hover {
+            background-color: #008ba3;
+        }
+
+        /* Текст с результатом */
+        .result {
+            margin-top: 30px;
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        #selectedEmotion {
+            font-weight: bold;
+            color: #00bcd4;
+        }
+    </style>
 </head>
 <body>
-    ...
+
+    <h2>Выберите вашу эмоцию</h2>
+
+    <div class="carousel-container">
+        <!-- Кнопка Назад -->
+        <button class="nav-btn" id="prevBtn">❮</button>
+
+        <!-- Видимая часть карусели -->
+        <div class="carousel-wrapper">
+            <div class="carousel" id="carouselTrack">
+                <div class="emotion-item" data-name="Радость">😀</div>
+                <div class="emotion-item" data-name="Любовь">😍</div>
+                <div class="emotion-item" data-name="Крутость">😎</div>
+                <div class="emotion-item" data-name="Смех">😂</div>
+                <div class="emotion-item" data-name="Удивление">😲</div>
+                <div class="emotion-item" data-name="Грусть">😢</div>
+                <div class="emotion-item" data-name="Злость">😡</div>
+            </div>
+        </div>
+
+        <!-- Кнопка Вперед -->
+        <button class="nav-btn" id="nextBtn">❯</button>
+    </div>
+
+    <!-- Вывод выбранной эмоции -->
+    <div class="result">
+        Выбрано: <span id="selectedEmotion">Ничего</span>
+    </div>
+
+    <script>
+        // JavaScript для работы карусели и выбора
+        const track = document.getElementById('carouselTrack');
+        const items = document.querySelectorAll('.emotion-item');
+        const nextBtn = document.getElementById('nextBtn');
+        const prevBtn = document.getElementById('prevBtn');
+        const resultSpan = document.getElementById('selectedEmotion');
+
+        let currentIndex = 0;
+        const itemWidth = 100; // Ширина одной эмоции в пикселях
+        const visibleItems = 3; // Сколько эмоций видно одновременно
+        const maxIndex = items.length - visibleItems;
+
+        // Прокрутка вперед
+        nextBtn.addEventListener('click', () => {
+            if (currentIndex < maxIndex) {
+                currentIndex++;
+                track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+            }
+        });
+
+        // Прокрутка назад
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+            }
+        });
+
+        // Выбор эмоции
+        items.forEach(item => {
+            item.addEventListener('click', () => {
+                // Убираем выделение со всех
+                items.forEach(el => el.classList.remove('selected'));
+                // Добавляем выделение кликнутой
+                item.classList.add('selected');
+                // Обновляем текст
+                resultSpan.textContent = `${item.dataset.name} ${item.textContent}`;
+            });
+        });
+    </script>
+
 </body>
 </html>
