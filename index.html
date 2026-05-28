@@ -3,38 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Премиум Лендинг с Анимацией</title>
-    <!-- Подключение Tailwind CSS для дизайна -->
+    <title>Премиум Лендинг | @duleth</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- Подключение стилей анимации AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
-        /* Анимация пульсации для кнопок */
         @keyframes pulse-glow {
             0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7); }
             50% { transform: scale(1.05); box-shadow: 0 0 20px 10px rgba(99, 102, 241, 0); }
         }
-        .animate-pulse-glow {
-            animation: pulse-glow 2s infinite;
-        }
+        .animate-pulse-glow { animation: pulse-glow 2s infinite; }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans overflow-x-hidden">
 
-    <!-- НАВИГАЦИЯ (Плавное появление сверху) -->
+    <!-- НАВИГАЦИЯ -->
     <nav data-aos="fade-down" data-aos-duration="1000" class="fixed top-0 left-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-black bg-gradient-to-r flow-from-indigo-400 to-purple-500 bg-clip-text text-transparent">NEO.AGENCY</div>
+            <div class="text-2xl font-black bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">NEO.AGENCY</div>
             <div class="space-x-8 hidden md:flex">
                 <a href="#services" class="hover:text-indigo-400 transition-colors">Услуги</a>
-                <a href="#about" class="hover:text-indigo-400 transition-colors">О нас</a>
-                <a href="#contact" class="hover:text-indigo-400 transition-colors">Контакты</a>
+                <a href="#contact" class="hover:text-indigo-400 transition-colors">Связаться</a>
             </div>
-            <a href="#contact" class="bg-indigo-600 hover:bg-indigo-700 px-5 py-2 rounded-full text-sm font-medium transition-all">Связаться</a>
+            <a href="https://t.me/duleth" target="_blank" class="bg-indigo-600 hover:bg-indigo-700 px-5 py-2 rounded-full text-sm font-medium transition-all">Telegram</a>
         </div>
     </nav>
 
-    <!-- ГЛАВНЫЙ БЛОК (Появление снизу и размытие) -->
+    <!-- ГЛАВНЫЙ БЛОК -->
     <section class="min-h-screen flex items-center justify-center pt-20 px-6 relative">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.15),transparent_50%)]"></div>
         
@@ -47,13 +41,13 @@
                 Разрабатываем высокотехнологичные сайты и интерфейсы с использованием искусственного интеллекта и передовых анимаций.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#contact" class="animate-pulse-glow bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded-xl font-medium text-center transition-all">Заказать сайт</a>
-                <a href="#services" class="border border-slate-700 hover:border-indigo-500/50 px-8 py-4 rounded-xl font-medium text-center transition-all">Узнать больше</a>
+                <a href="https://t.me/duleth" target="_blank" class="animate-pulse-glow bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded-xl font-medium text-center transition-all">Заказать сайт в Telegram</a>
+                <a href="#services" class="border border-slate-700 hover:border-indigo-500/50 px-8 py-4 rounded-xl font-medium text-center transition-all">Наши услуги</a>
             </div>
         </div>
     </section>
 
-    <!-- БЛОК С УСЛУГАМИ (Поочередное появление карточек при скролле) -->
+    <!-- УСЛУГИ -->
     <section id="services" class="py-32 px-6 max-w-7xl mx-auto border-t border-slate-900">
         <div class="text-center mb-20" data-aos="fade-up">
             <h2 class="text-3xl md:text-4xl font-bold mb-4">Что мы умеем</h2>
@@ -61,19 +55,16 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Карточка 1 -->
             <div data-aos="fade-up" data-aos-delay="100" class="bg-slate-900/50 border border-slate-800 p-8 rounded-2xl hover:border-indigo-500/40 transition-all group">
                 <div class="w-12 h-12 bg-indigo-600/10 rounded-xl flex items-center justify-center text-indigo-400 font-bold mb-6 group-hover:bg-indigo-600 group-hover:text-white transition-all">01</div>
                 <h3 class="text-xl font-semibold mb-3">Web Design</h3>
                 <p class="text-slate-400 text-sm">Уникальные интерфейсы, которые удерживают внимание пользователя с первой секунды.</p>
             </div>
-            <!-- Карточка 2 -->
             <div data-aos="fade-up" data-aos-delay="200" class="bg-slate-900/50 border border-slate-800 p-8 rounded-2xl hover:border-indigo-500/40 transition-all group">
                 <div class="w-12 h-12 bg-indigo-600/10 rounded-xl flex items-center justify-center text-indigo-400 font-bold mb-6 group-hover:bg-indigo-600 group-hover:text-white transition-all">02</div>
                 <h3 class="text-xl font-semibold mb-3">Development</h3>
                 <p class="text-slate-400 text-sm">Быстрый, чистый код, оптимизированный под любые устройства и поисковые системы.</p>
             </div>
-            <!-- Карточка 3 -->
             <div data-aos="fade-up" data-aos-delay="300" class="bg-slate-900/50 border border-slate-800 p-8 rounded-2xl hover:border-indigo-500/40 transition-all group">
                 <div class="w-12 h-12 bg-indigo-600/10 rounded-xl flex items-center justify-center text-indigo-400 font-bold mb-6 group-hover:bg-indigo-600 group-hover:text-white transition-all">03</div>
                 <h3 class="text-xl font-semibold mb-3">AI Integration</h3>
@@ -82,21 +73,16 @@
         </div>
     </section>
 
-    <!-- ФОРМА ОБРАТНОЙ СВЯЗИ (Выезжает сбоку) -->
+    <!-- БЛОК СВЯЗИ -->
     <section id="contact" class="py-32 px-6 max-w-4xl mx-auto border-t border-slate-900">
-        <div class="bg-gradient-to-r from-indigo-950 to-slate-900 border border-indigo-500/20 rounded-3xl p-8 md:p-12 shadow-2xl" data-aos="flip-right" data-aos-duration="1000">
-            <div class="text-center mb-10">
-                <h2 class="text-3xl font-bold mb-3">Обсудить проект</h2>
-                <p class="text-slate-400 text-sm">Оставьте заявку, и мы свяжемся с вами в течение 15 минут</p>
-            </div>
-            <form class="space-y-6">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <input type="text" placeholder="Ваше имя" class="w-full bg-slate-950 border border-slate-800 focus:border-indigo-500 rounded-xl px-5 py-4 text-sm outline-none transition-all">
-                    <input type="tel" placeholder="Телефон" class="w-full bg-slate-950 border border-slate-800 focus:border-indigo-500 rounded-xl px-5 py-4 text-sm outline-none transition-all">
-                </div>
-                <textarea placeholder="Расскажите о вашей идее..." rows="4" class="w-full bg-slate-950 border border-slate-800 focus:border-indigo-500 rounded-xl px-5 py-4 text-sm outline-none transition-all"></textarea>
-                <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 py-4 rounded-xl font-medium transition-all shadow-lg shadow-indigo-600/20">Отправить заявку</button>
-            </form>
+        <div class="bg-gradient-to-r from-indigo-950 to-slate-900 border border-indigo-500/20 rounded-3xl p-8 md:p-12 text-center shadow-2xl" data-aos="flip-right" data-aos-duration="1000">
+            <h2 class="text-3xl font-bold mb-4">Есть проект на примете?</h2>
+            <p class="text-slate-400 mb-8 max-w-md mx-auto text-sm md:text-base">
+                Нажмите кнопку ниже, чтобы обсудить детали напрямую со мной в Telegram. Отвечаю в течение 15 минут.
+            </p>
+            <a href="https://t.me/duleth" target="_blank" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-8 py-4 rounded-xl transition-all shadow-lg shadow-indigo-600/30 tracking-wide">
+                Начать чат с @duleth
+            </a>
         </div>
     </section>
 
@@ -105,12 +91,11 @@
         <p>&copy; 2026 NEO.AGENCY. Все права защищены.</p>
     </footer>
 
-    <!-- Скрипт инициализации анимаций -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
-            duration: 800, // Скорость анимации (в мс)
-            once: true,    // Анимация проигрывается только один раз при первом скролле
+            duration: 800,
+            once: true,
         });
     </script>
 </body>
