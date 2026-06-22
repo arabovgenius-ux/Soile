@@ -1,0 +1,90 @@
+---
+// index.astro - Код для твоей премиальной шаурмичной
+---
+
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUST & MEAT | Гастрономическая Шаурма</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  </head>
+  
+  <body class="bg-[#FAF6F0] text-[#1C1917] font-['Plus_Jakarta_Sans',sans-serif] antialiased overflow-x-hidden">
+    
+    <div class="bg-[#292524] text-[#FAF6F0] text-[10px] sm:text-xs uppercase tracking-widest py-3 text-center px-4 font-semibold flex justify-center items-center gap-2">
+      <span>Бесплатный фирменный морс к первому заказу через сайт</span>
+      <span class="text-base">➔</span>
+    </div>
+
+    <header class="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
+      <button class="flex flex-col gap-1.5 p-2 focus:outline-none group" aria-label="Открыть меню">
+        <span class="w-6 h-0.5 bg-[#1C1917] transition-transform"></span>
+        <span class="w-4 h-0.5 bg-[#1C1917] transition-transform origin-left group-hover:w-6"></span>
+      </button>
+
+      <div class="font-['Playfair_Display',serif] text-3xl font-bold tracking-tight cursor-pointer">
+        sh<span class="italic text-[#EA580C]">aw</span>a
+      </div>
+
+      <button class="p-2 relative hover:scale-105 transition-transform" aria-label="Корзина">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+        </svg>
+        <span class="absolute top-1 right-1 w-2 h-2 bg-[#EA580C] rounded-full"></span>
+      </button>
+    </header>
+
+    <main class="max-w-xl mx-auto px-6 pt-10 pb-24 text-center flex flex-col items-center">
+      
+      <h1 id="shawa-title" class="font-['Playfair_Display',serif] text-[46px] sm:text-[56px] leading-[1.1] font-semibold text-[#1C1917] tracking-tight opacity-0 translate-y-6">
+        Your day.<br />
+        Your Shawa.
+      </h1>
+
+      <p id="shawa-subtitle" class="text-base sm:text-lg text-[#78716C] mt-6 font-medium tracking-wide opacity-0 translate-y-4">
+        Premium craft doners & roll-wraps
+      </p>
+
+      <a href="#menu" id="shawa-btn" class="inline-block bg-[#EA580C] text-[#FAF6F0] font-semibold px-10 py-4.5 rounded-full mt-8 text-sm tracking-wider uppercase shadow-lg shadow-orange-700/10 hover:bg-[#D97706] hover:shadow-xl transition-all duration-300 opacity-0 scale-95">
+        Выбрать шаверну
+      </a>
+
+      <p id="shawa-desc" class="text-sm text-[#57534E] leading-relaxed max-w-sm mt-12 opacity-0">
+        Стритфуд гастрономического уровня. Мясо на углях, хрустящий крафтовый лаваш, секретный соус без майонеза и идеальный баланс вкуса.
+      </p>
+
+      <div id="shawa-media" class="w-full rounded-[2.5rem] overflow-hidden mt-12 aspect-[4/3] relative bg-[#E7E1D7] shadow-2xl shadow-stone-900/10 border border-white/50 opacity-0 translate-y-12">
+        <div class="absolute inset-0 bg-gradient-to-tr from-[#292524]/20 to-transparent z-10"></div>
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-xs text-[#78716C] font-semibold uppercase tracking-widest gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-[#EA580C] animate-pulse">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+          </svg>
+          [ сочное видео-производство ]
+        </div>
+      </div>
+    </main>
+
+    <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    
+    <script is:inline>
+      window.addEventListener('DOMContentLoaded', () => {
+        // Создаем таймлайн для последовательного и плавного появления элементов
+        const tl = gsap.timeline({ 
+          defaults: { 
+            ease: 'power4.out', 
+            duration: 1.4 
+          } 
+        });
+
+        tl.to('#shawa-title', { opacity: 1, y: 0, delay: 0.2 })
+          .to('#shawa-subtitle', { opacity: 1, y: 0 }, '-=1.1')
+          .to('#shawa-btn', { opacity: 1, scale: 1, duration: 1.2 }, '-=1.1')
+          .to('#shawa-desc', { opacity: 1, y: 0 }, '-=0.9')
+          .to('#shawa-media', { opacity: 1, y: 0, ease: 'power3.out', duration: 1.6 }, '-=1.0');
+      });
+    </script>
+  </body>
+</html>
